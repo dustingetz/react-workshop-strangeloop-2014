@@ -116,6 +116,7 @@ define([
         window.Cursor = Cursor;
         window.Contrib = Contrib;
         React.renderComponent(<App/>, rootEl);
+        Forms.ControlCommon.attachFormTooltips($('body'));
     }
 
     return {
