@@ -1,11 +1,10 @@
 /** @jsx React.DOM */
 define([
     'underscore', 'react', 'jquery', 'wingspan-forms', 'wingspan-cursor', 'wingspan-contrib', 'react-json-editor',
-    'util',
     'text!textassets/types/Contact.json',
     'text!textassets/contacts.json'
 ], function (_, React, $, Forms, Cursor, Contrib, JsonEditor,
-             util, ContactModel, contacts) {
+             ContactModel, contacts) {
     'use strict';
 
     var ContactModel = JSON.parse(ContactModel).data;
@@ -22,7 +21,7 @@ define([
             };
         },
         render: function () {
-            var cursor = Cursor.build(this.state, this.setState.bind(this), util.deepClone);
+            var cursor = Cursor.build(this.state, this.setState.bind(this), Contrib.deepClone);
             return (
                 <div className="App">
                     <MasterDetailDemo metadata={ContactModel} cursor={cursor.refine('MasterDetail')} />
@@ -78,8 +77,8 @@ define([
 
             // subtract out the stale record (old revision)
             // union in the new record into the nextCollection
-            var nextCollection = util.differenceDeep(database, [record]);
-            nextCollection = util.unionDeep(nextCollection, [nextRecord]);
+            var nextCollection = Contrib.differenceDeep(database, [record]);
+            nextCollection = Contrib.unionDeep(nextCollection, [nextRecord]);
 
             this.props.cursor.onChange({ database: nextCollection, form: nextRecord });
         }
@@ -115,7 +114,7 @@ define([
 
     function entrypoint(rootEl) {
         window.Cursor = Cursor;
-        window.util = util;
+        window.Contrib = Contrib;
         React.renderComponent(<App/>, rootEl);
     }
 
