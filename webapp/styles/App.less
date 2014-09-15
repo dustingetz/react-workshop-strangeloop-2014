@@ -1,0 +1,42 @@
+@import (less) "../lib/kendo-ui/styles/kendo.common.css";
+@import (less) "../lib/kendo-ui/styles/kendo.default.css";
+@import (less) "../lib/wingspan-forms/wingspan-forms.css";
+@import (less) "../lib/react-json-editor/react-json-editor.css";
+
+body {
+  overflow: scroll
+}
+
+.App {
+  display:table;
+  padding: 10px;
+
+  > .MasterDetailDemo {
+    display:table-cell;
+    vertical-align: top;
+    width: 50%;
+    padding: 10px;
+  }
+  > pre {
+    display: table-cell;
+    vertical-align: top;
+    padding: 10px;
+  }
+}
+
+.MasterDetailDemo {
+  > div {
+    display: table;
+
+    > ol {
+      display: table-cell;
+      vertical-align: top;
+      padding: 10px;
+    }
+    > .AutoForm {
+      display: table-cell;
+      padding: 10px;
+    }
+
+  }
+}
