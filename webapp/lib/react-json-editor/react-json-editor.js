@@ -2,13 +2,12 @@
     if (typeof define === 'function' && define.amd) {
         define([
             'underscore',
-            'react',
-            'wingspan-cursor'
+            'react'
         ], factory);
     } else {
-        root.JsonEditor = factory(root._, root.React, root.WingspanCursor);
+        root.JsonEditor = factory(root._, root.React);
     }
-}(this, function (_, React, WingspanCursor) {
+}(this, function (_, React) {
     /**
      * @license almond 0.2.9 Copyright (c) 2011-2014, The Dojo Foundation All Rights Reserved.
      * Available via the MIT or new BSD license.
@@ -542,8 +541,8 @@
 
     /** @jsx React.DOM */
     define('JsonLeafEditor',[
-        'underscore', 'react', 'wingspan-cursor', 'react-treeview'
-    ], function (_, React, Cursor, TreeView) {
+        'underscore', 'react', 'react-treeview'
+    ], function (_, React, TreeView) {
         'use strict';
 
         var JsonLeafEditor = React.createClass({displayName: 'JsonLeafEditor',
@@ -626,9 +625,9 @@
 
     /** @jsx React.DOM */
     define('JsonEditor',[
-        'underscore', 'react', 'wingspan-cursor', 'react-treeview',
+        'underscore', 'react', 'react-treeview',
         'JsonLeafEditor'
-    ], function (_, React, Cursor, TreeView, JsonLeafEditor) {
+    ], function (_, React, TreeView, JsonLeafEditor) {
         'use strict';
 
 
@@ -757,7 +756,6 @@
     // Make sure these globals are already on the page - e.g. by require-shims in the app
     define('underscore', function () { return _; });
     define('react', function () { return React; });
-    define('wingspan-cursor', function () { return WingspanCursor; });
 
     return require('react-json-editor');
 }));
